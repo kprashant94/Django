@@ -1,0 +1,16 @@
+{% extends 'dsnalgo/base.html' %}
+
+{% block title %}<title>{{ article.title }}</title> {% endblock %}
+{% block article %}
+
+    <div class="article">
+        <ul class="sb_menu">
+            <h2>{{ article.title }}</h2>
+            {% for sub in article.subarticle_set.all %}
+                <li><a href="{% url 'sub_article-detail' article.id sub.id %}">{{ sub.title }}</a></li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+{% endblock %}
